@@ -44,7 +44,7 @@ class StudentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Student $student)
     {
         return view('students.index');
     }
@@ -52,7 +52,7 @@ class StudentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(StudentRequest $request, Student $Studen)
+    public function update(StudentRequest $request, Student $Student)
     {
         Student::update($request->validated());
        return redirect()->route('students.index')->with('success', 'Estudante atualizada com sucesso!'); 
@@ -61,7 +61,7 @@ class StudentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Student $student)
     {
          $student->delete();
         return redirect()->route('students.index')->with('success', 'Estudante deletada com sucesso!');
