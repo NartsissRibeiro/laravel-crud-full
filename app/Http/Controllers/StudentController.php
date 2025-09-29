@@ -38,8 +38,8 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        $student = Student::with('classroom')->findOrFail($student);
-        return view('students.index', compact('student'));
+        $classroom = $student->Classroom; 
+        return view('students.index', compact('student', 'classroom'));
     }
 
     /**
@@ -47,7 +47,7 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        return view('students.index');
+        return view('students.index', compact());
     }
 
     /**

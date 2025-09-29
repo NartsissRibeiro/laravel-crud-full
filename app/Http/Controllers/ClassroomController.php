@@ -37,8 +37,8 @@ class ClassroomController extends Controller
      */
     public function show(Classroom $classroom)
     {
-         $student = Student::with('classroom')->findOrFail($student);
-         return view('classrooms.show', compact('classroom'));
+         $course = $classroom->Course;
+         return view('classrooms.show', compact('classroom', 'course'));
     }
 
     /**
