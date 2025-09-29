@@ -37,7 +37,7 @@ class ClassroomController extends Controller
      */
     public function show(Classroom $classroom)
     {
-         $course = $classroom->Course;
+         $courses = $classroom->Course;
          return view('classrooms.show', compact('classroom', 'course'));
     }
 

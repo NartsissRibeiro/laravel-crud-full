@@ -38,7 +38,7 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        $classroom = $student->Classroom; 
+        $classrooms = $student->Classroom; 
         return view('students.index', compact('student', 'classroom'));
     }
 
