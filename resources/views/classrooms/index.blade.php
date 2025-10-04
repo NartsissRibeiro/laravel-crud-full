@@ -22,7 +22,7 @@
                 <td>{{ $classroom->name }}</td>
                 <td>{{ $classroom->course_id }}</td>
                 <td>
-                    <a href="{{ route('classerooms.show', $classroom) }}" class="btn btn-info btn-sm">Ver</a>
+                    <a href="{{ route('classrooms.show', $classroom) }}" class="btn btn-info btn-sm">Ver</a>
                     <a href="{{ route('classrooms.edit', $classroom) }}" class="btn btn-warning btn-sm">Editar</a>
 
                 {{-- Form para deletar --}}

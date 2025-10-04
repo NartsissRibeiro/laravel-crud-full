@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Classroom;
+use App\Http\Requests\ClassroomRequest;
+
 class ClassroomController extends Controller
 {
     /**
@@ -12,7 +15,7 @@ class ClassroomController extends Controller
     public function index()
     {
         $classrooms = Classroom::orderBy('created_at', 'desc')->paginate(5);
-        return view('Classrooms.index', compact('classroom'));
+        return view('Classrooms.index', compact('classrooms'));
     }
 
     /**
@@ -38,7 +41,7 @@ class ClassroomController extends Controller
     public function show(Classroom $classroom)
     {
          $courses = $classroom->Course;
-         return view('classrooms.show', compact('classroom', 'course'));
+         return view('classrooms.show', compact('classroom', 'courses'));
     }
 
     /**
@@ -54,8 +57,8 @@ class ClassroomController extends Controller
      */
     public function update(ClassroomRequest $request, Classroom $classroom)
     {
-       Classroom::update($request->validated());
-       return redirect()->route('classrooms.index')->with('success', 'Classe atualizada com sucesso!'); 
+       $classroom->update($request->validated());
+       return redirect()->route('classrooms.index')->with('success', 'Classe atualizada com sucesso!');
     }
 
     /**

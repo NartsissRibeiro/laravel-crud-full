@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Student;
+use App\Http\Requests\StudentRequest;
+
+
 class StudentController extends Controller
 {
     /**
@@ -12,7 +16,7 @@ class StudentController extends Controller
     public function index()
     {
         $students = Student::orderBy('Created_at', 'desc')->paginate(5);
-        return view('students.index', compact('student'));
+        return view('students.index', compact('students'));
 
     }
 
@@ -39,7 +43,7 @@ class StudentController extends Controller
     public function show(Student $student)
     {
         $classrooms = $student->Classroom; 
-        return view('students.index', compact('student', 'classroom'));
+        return view('students.index', compact('students', 'classrooms'));
     }
 
     /**
@@ -47,7 +51,7 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        return view('students.index', compact());
+        return view('students.index', compact('student','classroom'));
     }
 
     /**
