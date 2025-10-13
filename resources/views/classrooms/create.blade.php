@@ -14,6 +14,22 @@ class="form-control @error('name') is-invalid @enderror" id="name" />
 <div class="invalid-feedback">{{ $message }}</div>
 @enderror
 </div>
+<div class="mb-3">
+<label for="course_id" class="form-label">Curso</label>
+
+<select id="course_id" name="course_id"
+    class="form-control @error('course_id') is-invalid @enderror">
+    <option value="">Selecione um Curso</option>
+    @foreach ($courses as $course)
+    <option value="{{$course->id}}" {{ old('course_id') == $course->id ? 'selected' : '' }}>
+        {{ $course->name }}
+    </option>
+    @endforeach
+</select>
+@error('course_id')
+<div class="invalid-feedback">{{ $message }}</div>
+@enderror
+</div>
 <button type="submit" class="btn btn-success">Salvar</button>
 <a href="{{ route('classrooms.index') }}" class="btn btn-secondary">Voltar</a>
 </form>

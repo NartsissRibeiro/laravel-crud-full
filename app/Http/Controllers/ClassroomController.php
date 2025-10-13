@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Course;
 use App\Models\Classroom;
 use App\Http\Requests\ClassroomRequest;
 
@@ -15,15 +16,16 @@ class ClassroomController extends Controller
     public function index()
     {
         $classrooms = Classroom::orderBy('created_at', 'desc')->paginate(5);
-        return view('Classrooms.index', compact('classrooms'));
+        return view('classrooms.index', compact('classrooms'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        return view('Classrooms.create');
+    {   
+        $courses = Course::all();
+        return view('classrooms.create', compact('courses'));
     }
 
     /**
@@ -40,7 +42,7 @@ class ClassroomController extends Controller
      */
     public function show(Classroom $classroom)
     {
-         $courses = $classroom->Course;
+         $courses = $classroom->course;
          return view('classrooms.show', compact('classroom', 'courses'));
     }
 
@@ -48,8 +50,8 @@ class ClassroomController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(Classroom $classroom)
-    {
-         return view('classrooms.edit', compact('classroom'));
+    {   $courses = Course::all();
+         return view('classrooms.edit', compact('classroom','courses'));
     }
 
     /**

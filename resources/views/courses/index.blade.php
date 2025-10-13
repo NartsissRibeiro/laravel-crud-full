@@ -23,8 +23,7 @@
                 <td>{{ \Illuminate\Support\Str::limit($course->description, 50) }}</td> {{-- Limita texto --}}
                 <td>
                     <a href="{{ route('courses.show', $course) }}" class="btn btn-info btn-sm">Ver</a>
-                    <a href="{{ route('courses.edit', $course) }}" class="btn btn-
-warning btn-sm">Editar</a>
+                    <a href="{{ route('courses.edit', $course) }}" class="btn btn-warning btn-sm">Editar</a>
 
                 {{-- Form para deletar --}}
 

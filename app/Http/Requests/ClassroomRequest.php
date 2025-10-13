@@ -23,7 +23,7 @@ class ClassroomRequest extends FormRequest
     {
         return [
              'name' => 'required|string|min:3|max:150',
-             'course_id' => 'required|exists:course,id'
+             'course_id' => 'required|exists:courses,id'
         ];
     }
 }
