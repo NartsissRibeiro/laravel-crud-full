@@ -50,7 +50,8 @@ class ClassroomController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(Classroom $classroom)
-    {   $courses = Course::all();
+    {   
+        $courses = Course::all();
          return view('classrooms.edit', compact('classroom','courses'));
     }
 

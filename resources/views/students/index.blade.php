@@ -22,7 +22,7 @@
             <tr>
                 <td>{{ $student->name }}</td>
                 <td>{{ $student->email }}</td>
-                <td>{{ $student->id_classroom }}</td>
+                <td>{{ $student->classroom_id }}</td>
                 <td>
                     <a href="{{ route('students.show', $student) }}" class="btn btn-info btn-sm">Ver</a>
                     <a href="{{ route('students.edit', $student) }}" class="btn btn-warning btn-sm">Editar</a>

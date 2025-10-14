@@ -10,7 +10,7 @@
         <strong>Email:</strong> {{ $student->email }}
     </li>
     <li class="list-group-item">
-        <strong>Sala:</strong> {{ $student->classroom->name }}
+        <strong>Sala:</strong> {{ $student->classroom_id}}
     </li>
 </ul>
 <a href="{{ route('students.index') }}" class="btn btn-secondary">Voltar</a>

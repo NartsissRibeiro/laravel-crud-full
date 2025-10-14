@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Student;
-use App\Http\Requests\StudentRequest;
+use App\Models\Classroom;
 
+use App\Http\Requests\StudentRequest;
 
 class StudentController extends Controller
 {
@@ -25,7 +26,8 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return view('students.create');
+        $classrooms = Classroom::all();
+        return view('students.create', compact('classrooms'));
     }
 
     /**
@@ -42,8 +44,8 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        $classrooms = $student->Classroom; 
-        return view('students.index', compact('students', 'classrooms'));
+        $classrooms = $student->classroom; 
+        return view('students.index', compact('student', 'classrooms'));
     }
 
     /**
@@ -51,15 +53,16 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        return view('students.index', compact('student','classroom'));
+        $classrooms = Student::all();
+        return view('students.index', compact('student', 'classrooms'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(StudentRequest $request, Student $Student)
+    public function update(StudentRequest $request, Student $student)
     {
-        Student::update($request->validated());
+        $student->update($request->validated());
        return redirect()->route('students.index')->with('success', 'Estudante atualizada com sucesso!'); 
     }
 
