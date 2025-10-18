@@ -4,7 +4,7 @@
 
     <h1>Lista de Estudante</h1>
 
-    <a href="{{ route('students.create') }}" class="btn btn-primary mb-3">Adicionar Classes</a>
+    <a href="{{ route('students.create') }}" class="btn btn-primary mb-3">Adicionar Estudante</a>
 
     <table class="table table-bordered">
         <thead>

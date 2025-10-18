@@ -43,8 +43,8 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        $classrooms = $student->classroom; 
-        return view('students.index', compact('student', 'classrooms'));
+        $classrooms = $student->classroom;
+        return view('students.show', compact('student', 'classrooms'));
     }
 
     /**
@@ -52,8 +52,8 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        $classrooms = Student::all();
-        return view('students.index', compact('student', 'classrooms'));
+        $classrooms = Classroom::all();
+        return view('students.edit', compact('student', 'classrooms'));
     }
 
     /**

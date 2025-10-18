@@ -6,6 +6,7 @@
 <form action="{{ route('students.store') }}" method="POST">
 @csrf 
 @method('POST')
+
 <div class="mb-3">
 <label for="name" class="form-label">Nome</label>
 
@@ -21,6 +22,22 @@
 {{ old('email') }}
 </input>
 @error('email')
+<div class="invalid-feedback">{{ $message }}</div>
+@enderror
+</div>
+<div class="mb-3">
+<label for="classroom_id" class="form-label">Classe</label>
+
+<select id="classroom_id" name="classroom_id"
+    class="form-control @error('classroom_id') is-invalid @enderror">
+    <option value="">Selecione uma classe</option>
+    @foreach ($classrooms as $classroom)
+    <option value="{{$classroom->id}}" {{ old('classroom_id') == $classroom->id ? 'selected' : '' }}>
+        {{ $classroom->name }}
+    </option>
+    @endforeach
+</select>
+@error('classroom_id')
 <div class="invalid-feedback">{{ $message }}</div>
 @enderror
 </div>

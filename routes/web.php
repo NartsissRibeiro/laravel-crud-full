@@ -8,6 +8,10 @@ use App\Http\Controllers\StudentController;
 Route::get('/teste-bootstrap', function () {
     return view('home');
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard/dashboard');
+});
 //Route::middleware(['auth'])->group(function () {
     //Route::get('/dashboard', function (){
         //return view('dashboard');
