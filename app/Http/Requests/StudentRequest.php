@@ -24,7 +24,7 @@ class StudentRequest extends FormRequest
         return [
             'name' => 'required|string|min:3|max:150',
             'email' => 'nullable|email|max:250',
-            'classroom_id' => 'required|exists:classroom,id'
+            'classroom_id' => 'required|exists:classrooms,id'
         ];
     }
 }
